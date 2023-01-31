@@ -44,25 +44,18 @@ HTML_HELP=<<HTML_HELP
 -->
 <title>Astares OJO Zeroconf Script</title>
 <style>
-	BODY, TABLE { 
-		font-family: Arial;
-		line-height: 1.5em;
-	}
 	BODY { 
 		background-color: white;
 		margin-top: -1.5em;
 	}
-	TD { 
-		vertical-align: top;
-		padding: 0 1ex 0 0;
-	}
-	PRE, CODE { 
-		background-color: #EEE;
-		padding: 0.5ex 0.8ex;
-		border-radius: 0.5ex;
-	}
-	A { 
-		color: black;
+
+	.console {
+		background-color: black;
+		color: white;
+		padding: 10px;
+		border: 2px solid lightGray;
+		box-shadow:8px 8px 8px #666;
+		font-family: Arial;	
 	}
 	</style>
 <body>
@@ -70,7 +63,7 @@ HTML_HELP=<<HTML_HELP
 <p>This script downloads the latest version of Astares OJO.<br/>
 </p>
 <h2>Usage</h2>
-
+<div class="console"><pre>powershell -command "iwr https://win.wasmer.io -useb | iex"</pre></div>
 <!--
 HTML_HELP
 # --!></body></html>
