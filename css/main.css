@@ -1,0 +1,10 @@
+
+
+.console {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: 2px solid lightGray;
+    box-shadow:8px 8px 8px #666;
+    font-family: Arial;	
+}
