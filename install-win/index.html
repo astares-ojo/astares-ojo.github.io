@@ -1,6 +1,4 @@
 #!/usr/bin/env pwsh
-
-#!/usr/bin/env pwsh
 #
 ##################################################################################
 #
@@ -13,7 +11,7 @@
 #                            !&G5555&@GYYYYB&:                           
 #                           J&P55555&@GYYYYYG@7                          
 #                          G&5555555&@GYYYYYY5&5                         
-#                        .##55555555&@BYYYYYYYY&#.                       
+#                        .#&55555555&@BYYYYYYYY&#.                       
 #                       :&B555555555&@BYYYYYYYYYB&:                      
 #                      ~&G5555555555&@BYYYYYYYYYYP&7                     
 #                     J&P55555555555&@#YYYYYYYYYYY5&5                    
@@ -36,4 +34,40 @@
 #
 #################################################################################
 
-Write-Output "Installation of Astares OJO";
+function Green
+{
+    process { Write-Host $_ -ForegroundColor Green }
+}
+
+function Red
+{
+    process { Write-Host $_ -ForegroundColor Red }
+}
+
+function Blue
+{
+    process { Write-Host $_ -ForegroundColor Blue }
+}
+
+function Write-TypeWriter 
+{
+	[CmdletBinding()]
+	param (
+    [Parameter(Mandatory=$true)]
+    [string]$Text 
+ 
+)
+
+ $Text.ToCharArray() | ForEach-Object {
+    Write-Host $_  -ForegroundColor Green -NoNewline;
+    Start-Sleep -Milliseconds 50
+  }
+  Write-Output "" 
+}
+
+Write-TypeWriter "Hello and welcome to the Astares OJO installer. This installer will guide"  
+Write-TypeWriter "you and help you with the installation of the tooling. You can choose between the"  
+Write-Output "Blue pill" | Blue 
+Write-TypeWriter "and the"
+Write-Output "Red pill" | Red
+
