@@ -34,6 +34,9 @@
 #
 #################################################################################
 
+# Stop the script in case of errors
+$ErrorActionPreference = 'Stop'
+
 function Green
 {
     process { Write-Host $_ -ForegroundColor Green }
@@ -47,6 +50,11 @@ function Red
 function Blue
 {
     process { Write-Host $_ -ForegroundColor Blue }
+}
+
+function White
+{
+    process { Write-Host $_ -ForegroundColor White }
 }
 
 function Write-TypeWriter 
@@ -66,8 +74,17 @@ function Write-TypeWriter
 }
 
 Write-TypeWriter "Hello and welcome to the Astares OJO installer. This installer will guide"  
-Write-TypeWriter "you and help you with the installation of the tooling. You can choose between the"  
-Write-Output "Blue pill" | Blue 
-Write-TypeWriter "and the"
-Write-Output "Red pill" | Red
+Write-TypeWriter "you and help you with the installation process for the tooling."
+
+$allowedExecutionPolicy = @('Unrestricted', 'RemoteSigned', 'ByPass')
+if ((Get-ExecutionPolicy).ToString() -notin $allowedExecutionPolicy) {
+  Write-Output ""
+  Write-Output "ERROR:" | Red
+  Write-Output "PowerShell requires an execution policy in [$($allowedExecutionPolicy -join ", ")] to run the installer" | Red
+  Write-Output ""
+  Write-Output "For example, to set the execution policy to 'RemoteSigned' please run :"
+  Write-Output "'Set-ExecutionPolicy RemoteSigned -scope CurrentUser'"
+  Write-Output "and then try again."
+  break
+}
 
